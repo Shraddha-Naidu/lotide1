@@ -10,13 +10,15 @@ const assertEqual = function(actual, expected) {
 //Add a for loop if where each element is looped through and compared in each array
 
 let eqArrays = function(arr1, arr2) {
-  for(let i = 0; i < arr1.length; i++) {
+  if(arr1.length !== arr2.length) {
+    return false;
+  }
+    for(let i = 0; i < arr1.length; i++) {
     if (arr1[i] !== arr2[i]) {
       return false;
       }
   }
   return true;
-
 };
 
 
