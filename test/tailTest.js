@@ -1,11 +1,14 @@
-const assertEqual = require('../assertEqual')
+const assert = require('../chai').assert;
 const tail = require('../tail')
 
-//TEST CODE
-const playerName = ["Garnett", "Bird", "Smart", "Tatum"];
-tail(playerName);//Calls tail function
-assertEqual(tail(playerName.length, 3));//assertEqual can't check if two arrays are the same so checking if output is equal to remaining element(.length)
-assertEqual(playerName[0], "Garnett");//Checks thath the right elements are being modified
-assertEqual(playerName[1], "Bird");
-assertEqual(playerName[2], "Smart");
-assertEqual(playerName[3], "Tatum");
+describe("#tail", () => {
+
+  it('returns ["Bird", "Smart", "Tatum"] for ["Garnett", "Bird", "Smart", "Tatum"]', () =>{
+  assert.deepEqual(tail(["Garnett", "Bird", "Smart", "Tatum"]), ["Bird", "Smart", "Tatum"])
+  });
+
+  it('returns [33, 36, 0] for [5, 33, 36, 0]', () =>{
+    assert.deepEqual(tail([5, 33, 36, 0]), [33, 36, 0])
+    });
+
+});
